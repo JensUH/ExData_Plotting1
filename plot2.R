@@ -2,7 +2,7 @@ electric_power <- read.table("./household_power_consumption.txt", sep = ";", na.
 data <- subset(electric_power, electric_power$Date == "1/2/2007" | electric_power$Date == "2/2/2007")
 data$DateTime <- as.POSIXct(paste(data$Date, data$Time), format="%d/%m/%Y %H:%M:%S")
 Sys.setlocale("LC_TIME", "English")
-plot(data$DateTime, data$Global_active_power, type="n", main = "", xlab ="", ylab = "Global Active Power (kilowatts)")
+plot(data$DateTime, data$Global_active_power, cex.lab=0.75, cex.axis = 0.75, type="n", main = "", xlab ="", ylab = "Global Active Power (kilowatts)")
 lines(data$DateTime,data$Global_active_power)
 dev.copy(png, file = "plot2.png",width = 480, height = 480)
 dev.off()
